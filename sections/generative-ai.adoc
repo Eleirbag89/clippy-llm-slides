@@ -106,8 +106,8 @@ image::Clippit.png[background, size=contain]
 --
 * Capire come funzionano le estensioni di Chrome
 * Integrare Clippy
-* Analizzare la pagina aperta dall'utente
 * Creare un RAG
+** Analizzare la pagina aperta dall'utente
 ** Salvare le informazioni della pagina
 ** Recuperare le informazioni salvate
 ** Interrogare un LLM con il contesto recuperato
@@ -138,19 +138,19 @@ image::extension-structure.png[height=690]
 
 [.columns.is-vcentered%auto-animate]
 == Popup
-[.column.is-two-thirds%auto-animate]
+[.column%auto-animate]
 --
 * Raccoglie l'input dell'utente
 * Verifica non ci sia un'altra operazione in corso
 * Invoca content script
 --
 
-[.column]
+[.column.is-two-thirds%auto-animate]
 --
 image::popup.png[height=690]
 --
 
-== Invocazione content script
+== Comunicazione tramite messaggi
 [source,js,highlight="1|2,3,9|4..8"]
 ----
 include::../assets/code_examples/popup.js[lines=7..15]
@@ -195,10 +195,15 @@ include::../assets/code_examples/clippy-init.js[lines=1..3]
 include::../assets/code_examples/clippy-init.js[lines=49..71]
 ----
 
-== Inizializzare Clippy
+== Voilà!
 
 image::clippy-on-page.png[]
 
+[.columns.is-vcentered%auto-animate]
+== Retrieval-Augmented Generation (RAG)
+--
+image::RAG_schema.svg[]
+--
 
 == Recuperare il contenuto della pagina
 
@@ -207,7 +212,7 @@ image::clippy-on-page.png[]
 include::../assets/code_examples/content.js[lines=120..145]
 ----
 
-== Embeddings e vector store
+== Embeddings e vector database
 
 [.text-left]
 --
@@ -215,7 +220,7 @@ include::../assets/code_examples/content.js[lines=120..145]
 ** Parte di una parola, compongono il dizionario di un LLM
 * Embedding
 ** Tecnica per trasformare una sequenza di token in un vettore numerico
-* Vector store
+* Vector database
 ** Database che permette di effettuare confronti per similarità sugli embedding salvati
 --
 
@@ -244,7 +249,7 @@ include::../assets/code_examples/background.js[lines=135..154]
 include::../assets/code_examples/background.js[lines=43..56]
 ----
 
-== Vector store
+== Vector database
 * Memorizza gli embedding
 * Permette di cercare embedding "Simili"
 * Voy Search
@@ -263,12 +268,6 @@ include::../assets/code_examples/background.js[lines=77..94]
 include::../assets/code_examples/background.js[lines=27..41]
 ----
 
-[.columns.is-vcentered%auto-animate]
-== Retrieval-Augmented Generation (RAG)
---
-image::RAG_schema.svg[]
---
-
 
 == !
 * Fase 1 +
@@ -277,19 +276,20 @@ Usa la domanda per cercare i documenti più rilevanti
 Usa i documenti recuperati e l'input per produrre la risposta
 
 
-== Fase 1
+== Retrieval
+Cerca i pezzi più rilevanti per rispondere alla domanda
 [source,js,highlight="1|5|6..12"]
 ----
 include::../assets/code_examples/background.js[lines=95..107]
 ----
 
-== Answer question
+== Rispondere alla domanda
 [source,js]
 ----
 include::../assets/code_examples/background.js[lines=108]
 ----
 
-== Answer question
+== Prompt/Messages
 [source,js,highlight="1|2..4,16|7..14|15..21|22"]
 ----
 include::../assets/code_examples/background.js[lines=161..174]
@@ -297,7 +297,7 @@ include::../assets/code_examples/background.js[lines=182..188]
 include::../assets/code_examples/background.js[lines=190]
 ----
 
-== Answer question
+== InstructModelSIngleton
 [source,js]
 ----
 include::../assets/code_examples/background.js[lines=59..74]
@@ -306,8 +306,10 @@ include::../assets/code_examples/background.js[lines=59..74]
 == Demo
 video::../video/demo.mp4[]
 
-
+[.columns]
 == Sfide
+[.column.is-two-thirds%auto-animate]
+--
 * Lento e ghiotto di risorse
 ** i7 11th G @ 2.80GHz 16 GB RAM Intel Iris Xe 
 ** Due minuti di inferenza + download dei modelli
@@ -315,17 +317,26 @@ video::../video/demo.mp4[]
 ** Modello LLM piccolo e quantizzato
 
 Soluzione: chip integrati dedicati all'architettura Transaformers
+--
 
+[.column]
+image::clippy-this-is-fine.jpeg[]
+
+[.columns]
 == Vantaggi
+[.column.is-two-thirds%auto-animate]
+--
 * Tecnologie Open
 * Costi sostenuti dagli utenti finali
 * Privacy by design
-* Minori problemi etici e di sicurezza
+* Meno problemi etici e di sicurezza
+--
 
+[.column]
+image::clippy-ship-it.gif[]
 
 == Riferimenti
 * ClippyLLM Repository
-* Queste slide
 * https://aitho.it[Aitho]
 * https://huggingface.co/docs/transformers.js/index[Transformers.js]
 * https://webllm.mlc.ai/[WebLLM]
