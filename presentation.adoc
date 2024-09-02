@@ -1,3 +1,4 @@
+[.white_bg]
 = RAG e LLM locali nel tuo browser: Clippy colpisce ancora!
 :docinfo: shared
 :author: Gabriele Grillo
@@ -19,26 +20,8 @@
 //:highlightjs-languages: js
 :highlightjs-theme: https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.3/styles/atom-one-dark.min.css
 // Title
-:title-slide-background-image: change-me.png
+:title-slide-background-image: clippy-background.gif
 
-== !
-
-This is the template I have been using for all my recent slide decks. 
-
-It's been useful and though it is not perfect, it has everything I need.
-
-Feel free to adapt it to your needs and share it with the community.
-
-[.muchotxt]
-_Template provided under CC BY_
-
-[link=https://creativecommons.org/licenses/by/4.0/]
-image::https://mirrors.creativecommons.org/presskit/buttons/88x31/png/by.png[height=40]
-
-
-[.notes]
---
---
 
 include::sections/intro.adoc[]
 
