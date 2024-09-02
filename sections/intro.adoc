@@ -1,0 +1,43 @@
+
+[.white_bg]
+== Aitho
+image::aitho.jpg[background]
+
+--
+* Fondata nel 2016 con sede in piazza Europa CT
+* Mission: Retention, Rientro e Sviluppo Talenti
+* Core: Consulenza Informatica settore Banking
+* Ricerca e Sviluppo su AI, xR, Blockchain, MicroX etc.
+* Benefits: full remote e welfare aziendale
+
+--
+
+[.white_bg]
+== !
+image::aitho_me.jpg[background]
+
+[.white_bg]
+== Gabriele Grillo
+image::aitho_me.jpg[background]
+
+--
+* Software Architect / Full Stack Dev / SysAdmin
+* R&D in AI, MicroFE/MicroApp, NFT…
+* Open Source: Librerie PHP per bot Telegram / Mastodon
+* https://github.com/Eleirbag89
+* @grimstack@asocial.grimstack.xyz
+--
+
+[.white_bg]
+== Agenda
+image::patrick_agenda.png[background, size=contain]
+
+--
+* GenAI
+* Modelli LLM
+* Esecuzione nel browser
+* ClippyLLM
+* RAG
+* Considerazioni e domande
+--
+

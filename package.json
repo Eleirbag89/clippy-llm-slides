@@ -1,0 +1,15 @@
+{
+  "name": "asciidoc-slides",
+  "version": "1.0.0",
+  "description": "= Asciidoctor reveal.js template \r :author: @martsec",
+  "main": "reveal.js",
+  "scripts": {
+    "build": "npx npx asciidoctor-revealjs presentation.adoc"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@asciidoctor/reveal.js": "^5.1.0"
+  }
+}

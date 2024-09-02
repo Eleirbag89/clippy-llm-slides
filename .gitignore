@@ -1,0 +1,4 @@
+asciidoctor-revealjs*
+.sync/*
+node_modules
+presentation.html

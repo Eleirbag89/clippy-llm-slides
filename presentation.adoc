@@ -1,0 +1,45 @@
+= RAG e LLM locali nel tuo browser: Clippy colpisce ancora!
+:docinfo: shared
+:author: Gabriele Grillo
+:icons: font
+:imagesdir: assets/images/
+// reveal.js config
+//:revealjsdir: https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.1.2
+:revealjsdir: assets/js/reveal.js
+:customcss: assets/css/reveal-override.css
+:revealjs_theme: white
+:revealjs_hash: true
+:revealjs_width: 1408
+:revealjs_height: 792
+:revealjs_slideNumber: true
+:revealjs_pdfSeparateFragments: false
+:revealjs_controlsBackArrows: faded
+// Highliter
+:source-highlighter: highlightjs
+//:highlightjs-languages: js
+:highlightjs-theme: https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.3/styles/atom-one-dark.min.css
+// Title
+:title-slide-background-image: change-me.png
+
+== !
+
+This is the template I have been using for all my recent slide decks. 
+
+It's been useful and though it is not perfect, it has everything I need.
+
+Feel free to adapt it to your needs and share it with the community.
+
+[.muchotxt]
+_Template provided under CC BY_
+
+[link=https://creativecommons.org/licenses/by/4.0/]
+image::https://mirrors.creativecommons.org/presskit/buttons/88x31/png/by.png[height=40]
+
+
+[.notes]
+--
+--
+
+include::sections/intro.adoc[]
+
+include::sections/generative-ai.adoc[]

@@ -1,0 +1,35 @@
+<div id="watermark"><img src="images/logo.png" alt="logo"></div>
+<footer id="title-footer" class="white_bg">
+    <p>Gabriele Grillo - DevFest Catania 2024</p>
+</footer>
+<script src="assets/js/reveal.js-plugins/menu/menu.js"></script>
+<link rel="stylesheet" href="assets/js/reveal.js-plugins/customcontrols/style.css">
+<script src="assets/js/reveal.js-plugins/customcontrols/plugin.js"></script>
+<script src="assets/js/reveal.js-plugins/countdown/countdown.js"></script>
+<script>
+  Reveal.configure({
+    menu: {
+      side: 'left',
+      openButton: true
+    },
+    customcontrols: {
+      controls: [
+        {
+          id: 'toggle-overview',
+          title: 'Toggle overview (O)',
+          icon: '<i class="fa fa-th"></i>',
+          action: 'Reveal.toggleOverview();'
+        }
+      ]
+    },
+    keyboard: {
+    }
+  })
+  
+
+  const params = new URLSearchParams(window.location.search);
+  if (! params.has("print-pdf")) {
+    Reveal.registerPlugin(RevealMenu)
+    Reveal.registerPlugin(RevealCustomControls)
+  }
+</script>
