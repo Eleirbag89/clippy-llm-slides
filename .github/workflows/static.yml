@@ -39,7 +39,7 @@ jobs:
       - run: npm ci
       - run: npm run build
       - run: mkdir dist
-      - run: mv asset dist/
+      - run: mv assets dist/
       - run: mv presentation.html dist/index.html
 
       - name: Setup Pages
