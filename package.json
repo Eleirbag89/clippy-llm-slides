@@ -4,12 +4,13 @@
   "description": "= Asciidoctor reveal.js template \r :author: @martsec",
   "main": "reveal.js",
   "scripts": {
-    "build": "npx npx asciidoctor-revealjs presentation.adoc"
+    "build": "npx npx asciidoctor-revealjs -r asciidoctor-kroki presentation.adoc"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@asciidoctor/reveal.js": "^5.1.0"
+    "@asciidoctor/reveal.js": "^5.1.0",
+    "asciidoctor-kroki": "^0.18.1"
   }
 }

@@ -1,0 +1,34 @@
+skinparam componentStyle rectangle
+skinparam componentFontSize 36
+
+[Question] as q #e2f2ffff
+[Embedding] as qe #e4daffff
+
+[Prompt/Messages] as pm #e2f2ffff
+
+[Vector Database] as db #GainsBoro
+[Web Page content] as w #GoldenRod
+[Embedding] as ep #e4daffff
+
+
+[Context] as c #GoldenRod
+
+
+[\nLLM\nPhi3-mini q4\n] as llm #ffc9c9ff
+
+[Answer] as a #bcf4c4ff
+
+
+q -d-> qe
+qe -r-> db
+w -u-> ep
+ep -u-> db
+db -r-> c
+
+pm -u-> llm
+c -r-> llm
+q -r-> llm
+llm -r-> a
+
+label " " as X
+skinparam sequenceArrowThickness 5.5

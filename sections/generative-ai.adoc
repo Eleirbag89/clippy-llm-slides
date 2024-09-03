@@ -199,31 +199,30 @@ include::../assets/code_examples/clippy-init.js[lines=49..71]
 
 image::clippy-on-page.png[]
 
+
+
 [.columns.is-vcentered%auto-animate]
 == Retrieval-Augmented Generation (RAG)
---
-image::RAG_schema.svg[]
---
+[plantuml, rma-component-diagram, svg]
+....
+include::../assets/diagrams/rag.txt[]
+....
 
-== Recuperare il contenuto della pagina
+[.columns.is-vcentered%auto-animate]
+== Recupero contenuto della pagina
+[plantuml, rma-component-diagram, svg]
+....
+include::../assets/diagrams/rag.txt[]
+X -[#green,thickness=10]l-> w : "      "
+....
+
+
+== Recuperare il contenuto della pagina Codice
 
 [source,js,highlight="1..3,22..25|6,8|9..21"]
 ----
 include::../assets/code_examples/content.js[lines=120..145]
 ----
-
-== Embeddings e vector database
-
-[.text-left]
---
-* Token
-** Parte di una parola, compongono il dizionario di un LLM
-* Embedding
-** Tecnica per trasformare una sequenza di token in un vettore numerico
-* Vector database
-** Database che permette di effettuare confronti per similarità sugli embedding salvati
---
-
 
 == Message handler
 [source,js]
@@ -237,7 +236,25 @@ include::../assets/code_examples/background.js[lines=200..221]
 include::../assets/code_examples/background.js[lines=77..91]
 ----
 
-== Calcolare gli embeddings
+[.columns.is-vcentered%auto-animate]
+== Calcolare gli embedding
+[plantuml, rma-component-diagram, svg]
+....
+include::../assets/diagrams/rag.txt[]
+X -[#green,thickness=10]l-> ep : "      "
+....
+
+== Embeddings
+
+[.text-left]
+--
+* Token
+** Parte di una parola, compongono il dizionario di un LLM
+* Embedding
+** Trasforma una sequenza di token in un vettore numerico
+--
+
+== Calcolare gli embeddings Codice
 [source,js,highlight="1..10|12..20"]
 ----
 include::../assets/code_examples/background.js[lines=135..154]
@@ -249,11 +266,20 @@ include::../assets/code_examples/background.js[lines=135..154]
 include::../assets/code_examples/background.js[lines=43..56]
 ----
 
+[.columns.is-vcentered%auto-animate]
+== Vector database
+[plantuml, rma-component-diagram, svg]
+....
+include::../assets/diagrams/rag.txt[]
+X -[#green,thickness=10]d-> db : "      "
+....
+
 == Vector database
 * Memorizza gli embedding
 * Permette di cercare embedding "Simili"
 * Voy Search
 ** Completamente In-Browser
+** Open source
 
 == Salvataggio embeddings
 [source,js,highlight="6,16,17"]
@@ -268,14 +294,6 @@ include::../assets/code_examples/background.js[lines=77..94]
 include::../assets/code_examples/background.js[lines=27..41]
 ----
 
-
-== !
-* Fase 1 +
-Usa la domanda per cercare i documenti più rilevanti 
-* Fase 2 +
-Usa i documenti recuperati e l'input per produrre la risposta
-
-
 == Retrieval
 Cerca i pezzi più rilevanti per rispondere alla domanda
 [source,js,highlight="1|5|6..12"]
@@ -289,6 +307,13 @@ include::../assets/code_examples/background.js[lines=95..107]
 include::../assets/code_examples/background.js[lines=108]
 ----
 
+[.columns.is-vcentered%auto-animate]
+== Vector database
+[plantuml, rma-component-diagram, svg]
+....
+include::../assets/diagrams/rag.txt[]
+X -[#green,thickness=10]r-> pm : "      "
+....
 == Prompt/Messages
 [source,js,highlight="1|2..4,16|7..14|15..21|22"]
 ----
@@ -297,7 +322,7 @@ include::../assets/code_examples/background.js[lines=182..188]
 include::../assets/code_examples/background.js[lines=190]
 ----
 
-== InstructModelSIngleton
+== InstructModelSingleton
 [source,js]
 ----
 include::../assets/code_examples/background.js[lines=59..74]

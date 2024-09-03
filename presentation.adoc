@@ -21,6 +21,8 @@
 :highlightjs-theme: https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.3/styles/atom-one-dark.min.css
 // Title
 :title-slide-background-image: clippy-background.gif
+:kroki-fetch-diagram: true
+:kroki-default-format: svg
 
 
 include::sections/intro.adoc[]
