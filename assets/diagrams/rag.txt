@@ -31,4 +31,6 @@ q -r-> llm
 llm -r-> a
 
 label " " as X
+label " " as Y
+label " " as Z
 skinparam sequenceArrowThickness 5.5

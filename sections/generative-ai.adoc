@@ -199,17 +199,30 @@ include::../assets/code_examples/clippy-init.js[lines=49..71]
 
 image::clippy-on-page.png[]
 
+[.columns.is-vcentered%auto-animate]
+== Aumentare la conoscenza di un LLM: fine tuning
+* Riallena (parzialmente) il modello con i nuovi dati
+** Procedura lenta e costosa
+* Ogni cambiamento nei dati richiede di riallenare il modello
 
 
 [.columns.is-vcentered%auto-animate]
-== Retrieval-Augmented Generation (RAG)
+== Aumentare la conoscenza di un LLM: RAG
+* Inietta le informazioni rilevanti nel prompt
+* Dinamico
+* Più costoso in fase di inferenza
+** Prompt più lungo
+* La qualità dipende dalla selezione delle informazioni rilevanti!
+
+[.columns.is-vcentered%auto-animate]
+== Diagramma di un RAG
 [plantuml, rma-component-diagram, svg]
 ....
 include::../assets/diagrams/rag.txt[]
 ....
 
 [.columns.is-vcentered%auto-animate]
-== Recupero contenuto della pagina
+== !
 [plantuml, rma-component-diagram, svg]
 ....
 include::../assets/diagrams/rag.txt[]
@@ -217,27 +230,15 @@ X -[#green,thickness=10]l-> w : "      "
 ....
 
 
-== Recuperare il contenuto della pagina Codice
+== Recuperare il contenuto della pagina
 
 [source,js,highlight="1..3,22..25|6,8|9..21"]
 ----
 include::../assets/code_examples/content.js[lines=120..145]
 ----
 
-== Message handler
-[source,js]
-----
-include::../assets/code_examples/background.js[lines=200..221]
-----
-
-== Processing
-[source,js,highlight="1..4,8..15|6"]
-----
-include::../assets/code_examples/background.js[lines=77..91]
-----
-
 [.columns.is-vcentered%auto-animate]
-== Calcolare gli embedding
+== !
 [plantuml, rma-component-diagram, svg]
 ....
 include::../assets/diagrams/rag.txt[]
@@ -254,7 +255,13 @@ X -[#green,thickness=10]l-> ep : "      "
 ** Trasforma una sequenza di token in un vettore numerico
 --
 
-== Calcolare gli embeddings Codice
+== Processing
+[source,js,highlight="1..4,8..15|6"]
+----
+include::../assets/code_examples/background.js[lines=77..91]
+----
+
+== Calcolare gli embeddings
 [source,js,highlight="1..10|12..20"]
 ----
 include::../assets/code_examples/background.js[lines=135..154]
@@ -267,7 +274,7 @@ include::../assets/code_examples/background.js[lines=43..56]
 ----
 
 [.columns.is-vcentered%auto-animate]
-== Vector database
+== !
 [plantuml, rma-component-diagram, svg]
 ....
 include::../assets/diagrams/rag.txt[]
@@ -294,12 +301,30 @@ include::../assets/code_examples/background.js[lines=77..94]
 include::../assets/code_examples/background.js[lines=27..41]
 ----
 
+[.columns.is-vcentered%auto-animate]
+== !
+[plantuml, rma-component-diagram, svg]
+....
+include::../assets/diagrams/rag.txt[]
+Y -[#green,thickness=10]u-> qe : "      "
+X -[#green,thickness=10]d-> db : "      "
+....
+
 == Retrieval
 Cerca i pezzi più rilevanti per rispondere alla domanda
 [source,js,highlight="1|5|6..12"]
 ----
 include::../assets/code_examples/background.js[lines=95..107]
 ----
+
+[.columns.is-vcentered%auto-animate]
+== !
+[plantuml, rma-component-diagram, svg]
+....
+include::../assets/diagrams/rag.txt[]
+Y -[#green,thickness=10]u-> c : "      "
+Z -[#green,thickness=10]r-> q : "      "
+....
 
 == Rispondere alla domanda
 [source,js]
@@ -308,11 +333,12 @@ include::../assets/code_examples/background.js[lines=108]
 ----
 
 [.columns.is-vcentered%auto-animate]
-== Vector database
+== !
 [plantuml, rma-component-diagram, svg]
 ....
 include::../assets/diagrams/rag.txt[]
 X -[#green,thickness=10]r-> pm : "      "
+Y -[#green,thickness=10]d-> llm : "      "
 ....
 == Prompt/Messages
 [source,js,highlight="1|2..4,16|7..14|15..21|22"]
