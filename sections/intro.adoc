@@ -33,9 +33,8 @@ image::aitho_me.jpg[background]
 image::patrick_agenda.png[background, size=contain]
 
 --
-* GenAI
-* Modelli LLM
-* Esecuzione nel browser
+* Panoramica GenAI e LLM
+* Modelli LLM nel browser
 * ClippyLLM
 * RAG
 * Considerazioni e domande

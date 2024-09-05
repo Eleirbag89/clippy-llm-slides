@@ -44,9 +44,9 @@ image:transformers-architecture.png[]
 [.column.is-two-thirds%auto-animate]
 --
 * Modelli locali
+** Microsoft Phi
 ** Meta Llama
 ** Mistral Mixtral
-** Phi
 * Tools
 ** Ollama
 ** LLM Studio
@@ -107,7 +107,7 @@ image::Clippit.png[background, size=contain]
 --
 * Capire come funzionano le estensioni di Chrome
 * Integrare Clippy
-* Creare un RAG
+* Espandere la "conoscenza" di un LLM
 ** Analizzare la pagina aperta dall'utente
 ** Salvare le informazioni della pagina
 ** Recuperare le informazioni salvate
@@ -201,19 +201,29 @@ include::../assets/code_examples/clippy-init.js[lines=49..71]
 image::clippy-on-page.png[]
 
 [.columns.is-vcentered%auto-animate]
-== Aumentare la conoscenza di un LLM: fine tuning
+== Espandere la conoscenza di un LLM
+Un LLM conosce sono i dati su cui è stato allenato
+
+Per aggiungere il contenuto della pagina che l'urente sta visitando abbiamo due strade:
+* Fine tuning
+* Retrieval-Augmented Generation (RAG)
+
+[.columns.is-vcentered%auto-animate]
+== Espandere la conoscenza di un LLM: fine tuning
 * Riallena (parzialmente) il modello con i nuovi dati
 ** Procedura lenta e costosa
 * Ogni cambiamento nei dati richiede di riallenare il modello
+* Non è sostenibile per il nostro caso d'uso!
 
 
 [.columns.is-vcentered%auto-animate]
-== Aumentare la conoscenza di un LLM: RAG
+== Espandere la conoscenza di un LLM: RAG
 * Inietta le informazioni rilevanti nel prompt
 * Dinamico
 * Più costoso in fase di inferenza
 ** Prompt più lungo
-* La qualità dipende dalla selezione delle informazioni rilevanti!
+* Dipendendente dalla Context Window del modello
+* La qualità delle risposte dipende dalla selezione delle informazioni rilevanti!
 
 [.columns.is-vcentered%auto-animate]
 == Diagramma di un RAG
