@@ -1,3 +1,7 @@
+[.white_bg]
+== Follow Along
+image:qr_code.png[background]
+
 
 [.white_bg]
 == Aitho
@@ -28,6 +32,36 @@ image::aitho_me.jpg[background]
 * @grimstack@asocial.grimstack.xyz
 --
 
+[.columns.is-vcentered%auto-animate]
+== Disclaimer
+[.column]
+[.text-left]
+--
+_Clippy_ e tutti i nomi, i loghi e i disegni correlati sono di proprietà di Microsoft Corporation.
+
+Tutte le opinioni espresse nel presente talk sono effettuate a *titolo personale* e non riflettono necessariamente quelle di Aitho.
+--
+
+[.column]
+--
+image::clippy-flip-bird.jpg[]
+--
+
+[.columns.is-vcentered%auto-animate]
+== Warning
+[.column]
+[.text-left]
+--
+Nel corso del presente talk capiterà di _antropomorfizzare_ l'AI per semplificare la discussione con delle analogie
+
+Le AI sono modelli matematici, probabilmente dei _"semplici"_ pappagalli stocastici, per tanto parlare di _intelligenza_, _ragionamento_ e _pensiero_ è *improprio*.
+--
+
+[.column]
+--
+image::machine-friend-bad-idea.png[]
+--
+
 [.white_bg]
 == Agenda
 image::patrick_agenda.png[background, size=contain]
@@ -39,4 +73,3 @@ image::patrick_agenda.png[background, size=contain]
 * RAG
 * Considerazioni e domande
 --
-

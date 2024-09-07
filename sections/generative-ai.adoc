@@ -1,5 +1,4 @@
 
-
 [.columns.is-vcentered%auto-animate]
 == Generative AI e LLM
 
