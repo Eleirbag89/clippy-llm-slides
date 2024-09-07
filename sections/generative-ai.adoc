@@ -200,11 +200,16 @@ include::../assets/code_examples/clippy-init.js[lines=49..71]
 
 image::clippy-on-page.png[]
 
-[.columns.is-vcentered%auto-animate]
+[%auto-animate]
 == Espandere la conoscenza di un LLM
+[.text-left]
 Un LLM conosce sono i dati su cui è stato allenato
 
-Per aggiungere il contenuto della pagina che l'urente sta visitando abbiamo due strade:
+[.text-left]
+Per aggiungere il contenuto della pagina che l'utente sta visitando abbiamo due strade:
+
+[.text-left]
+[%step]
 * Fine tuning
 * Retrieval-Augmented Generation (RAG)
 
