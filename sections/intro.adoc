@@ -54,7 +54,7 @@ image::clippy-flip-bird.jpg[]
 --
 Nel corso del presente talk capiterà di _antropomorfizzare_ l'AI per semplificare la discussione con delle analogie
 
-Le AI sono modelli matematici, probabilmente dei _"semplici"_ pappagalli stocastici, per tanto parlare di _intelligenza_, _ragionamento_ e _pensiero_ è *improprio*.
+Le AI sono modelli matematici, probabilmente dei _"semplici"_ pappagalli stocastici, pertanto parlare di _intelligenza_, _ragionamento_ e _pensiero_ è *improprio*.
 --
 
 [.column]
