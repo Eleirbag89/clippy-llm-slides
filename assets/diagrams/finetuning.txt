@@ -1,0 +1,15 @@
+skinparam handwritten true
+
+rectangle "$SageMakerModelIMG()\nBaseLLM" as basellm
+rectangle "$UserIMG()\nUser" as user
+rectangle "$DocumentsIMG()\nOrg/Specific\nknowledge dataset" as documents
+rectangle "$SageMakerModelIMG()$DocumentsIMG()\nFinetuned LLM" as finetunellm
+rectangle "$GenericdatabaseIMG()\nGigantic Dataset" as db
+() " " as point
+
+db --right--> basellm : pre-training
+basellm --r-- point: Fine
+point --r--> finetunellm : tuning
+documents -u- point
+finetunellm -> user : Response
+user -> finetunellm : Query

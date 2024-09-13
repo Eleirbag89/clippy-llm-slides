@@ -199,25 +199,45 @@ include::../assets/code_examples/clippy-init.js[lines=49..71]
 
 image::clippy-on-page.png[]
 
-[%auto-animate]
+[.columns.is-vcentered%auto-animate]
 == Espandere la conoscenza di un LLM
+
+[.column.is-two-thirds%auto-animate]
 [.text-left]
+--
 Un LLM conosce sono i dati su cui è stato allenato
 
-[.text-left]
 Per aggiungere il contenuto della pagina che l'utente sta visitando abbiamo due strade:
 
-[.text-left]
 [%step]
 * Fine tuning
 * Retrieval-Augmented Generation (RAG)
+--
+
+[.column]
+--
+image::drclippy.jpg[]
+--
 
 [.columns.is-vcentered%auto-animate]
 == Espandere la conoscenza di un LLM: fine tuning
+
+[.column]
 * Riallena (parzialmente) il modello con i nuovi dati
 ** Procedura lenta e costosa
 * Ogni cambiamento nei dati richiede di riallenare il modello
 * Non è sostenibile per il nostro caso d'uso!
+
+[.column]
+[plantuml, rma-component-diagram-finetuning, svg]
+....
+include::../assets/diagrams/aws/AWSCommon.puml[]
+include::../assets/diagrams/aws/Documents.puml[]
+include::../assets/diagrams/aws/Genericdatabase.puml[]
+include::../assets/diagrams/aws/SageMakerModel.puml[]
+include::../assets/diagrams/aws/User.puml[]
+include::../assets/diagrams/finetuning.txt[]
+....
 
 
 [.columns.is-vcentered%auto-animate]
