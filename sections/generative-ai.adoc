@@ -251,14 +251,14 @@ include::../assets/diagrams/finetuning.txt[]
 
 [.columns.is-vcentered%auto-animate]
 == Diagramma di un RAG
-[plantuml, rma-component-diagram, svg]
+[plantuml, rma-component-diagram-rag, svg]
 ....
 include::../assets/diagrams/rag.txt[]
 ....
 
 [.columns.is-vcentered%auto-animate]
 == !
-[plantuml, rma-component-diagram, svg]
+[plantuml, rma-component-diagram-rag, svg]
 ....
 include::../assets/diagrams/rag.txt[]
 X -[#green,thickness=10]l-> w : "      "
@@ -274,7 +274,7 @@ include::../assets/code_examples/content.js[lines=120..145]
 
 [.columns.is-vcentered%auto-animate]
 == !
-[plantuml, rma-component-diagram, svg]
+[plantuml, rma-component-diagram-rag, svg]
 ....
 include::../assets/diagrams/rag.txt[]
 X -[#green,thickness=10]l-> ep : "      "
@@ -310,7 +310,7 @@ include::../assets/code_examples/background.js[lines=43..56]
 
 [.columns.is-vcentered%auto-animate]
 == !
-[plantuml, rma-component-diagram, svg]
+[plantuml, rma-component-diagram-rag, svg]
 ....
 include::../assets/diagrams/rag.txt[]
 X -[#green,thickness=10]d-> db : "      "
@@ -338,7 +338,7 @@ include::../assets/code_examples/background.js[lines=27..41]
 
 [.columns.is-vcentered%auto-animate]
 == !
-[plantuml, rma-component-diagram, svg]
+[plantuml, rma-component-diagram-rag, svg]
 ....
 include::../assets/diagrams/rag.txt[]
 Y -[#green,thickness=10]u-> qe : "      "
@@ -354,7 +354,7 @@ include::../assets/code_examples/background.js[lines=95..107]
 
 [.columns.is-vcentered%auto-animate]
 == !
-[plantuml, rma-component-diagram, svg]
+[plantuml, rma-component-diagram-rag, svg]
 ....
 include::../assets/diagrams/rag.txt[]
 Y -[#green,thickness=10]u-> c : "      "
@@ -369,7 +369,7 @@ include::../assets/code_examples/background.js[lines=108]
 
 [.columns.is-vcentered%auto-animate]
 == !
-[plantuml, rma-component-diagram, svg]
+[plantuml, rma-component-diagram-rag, svg]
 ....
 include::../assets/diagrams/rag.txt[]
 X -[#green,thickness=10]r-> pm : "      "
