@@ -18,7 +18,7 @@
 // Highliter
 :source-highlighter: highlightjs
 //:highlightjs-languages: js
-:highlightjs-theme: https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.3/styles/atom-one-dark.min.css
+:highlightjs-theme: https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.3/styles/atom-one-light.min.css
 // Title
 :title-slide-background-image: clippy-background.gif
 :kroki-fetch-diagram: true
