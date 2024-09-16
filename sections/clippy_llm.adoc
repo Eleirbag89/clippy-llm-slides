@@ -1,0 +1,338 @@
+
+[.white_bg]
+== Il piano
+image::bbm.gif[background]
+
+Realizzare un'estensione per Chrome in grado di
+
+* Analizzare il contenuto di una pagina web
+* Far scrivere una domanda all'utente
+* Rispondere alla domanda in base al contenuto
+
+ma soprattutto... 
+
+[.white_bg]
+== !
+image::Clippit.png[background, size=contain]
+
+[.columns.is-vcentered%auto-animate]
+== The trunk of the car looked like...
+
+[.column.is-two-thirds%auto-animate]
+--
+* Capire come funzionano le estensioni di Chrome
+* Integrare Clippy
+* Espandere la "conoscenza" di un LLM
+** Analizzare la pagina aperta dall'utente
+** Salvare le informazioni della pagina
+** Recuperare le informazioni salvate
+** Interrogare un LLM con il contesto recuperato
+--
+
+[.column]
+--
+image::fear-and-loathing.jfif[size=contain]
+--
+
+[.columns.is-vcentered%auto-animate]
+== Anatomia di un estensione
+[.column.is-two-thirds%auto-animate]
+--
+* public: script caricabili nelle pagine visitate
+* src: codice dell'estensione
+** background.js: codice del service worker, esegue le operazioni
+** popup.* tab.js: gestione interfaccia dell'estensione
+** content.js: gestione azioni nella pagina visitata
+* webpack.config.js: configurazioni per buildare l'estensione
+
+--
+
+[.column]
+--
+image::extension-structure.png[height=690]
+--
+
+[.columns.is-vcentered%auto-animate]
+== Popup
+[.column%auto-animate]
+--
+* Raccoglie l'input dell'utente
+* Verifica non ci sia un'altra operazione in corso
+* Invoca content script
+--
+
+[.column.is-two-thirds%auto-animate]
+--
+image::popup.png[height=690]
+--
+
+== Comunicazione tramite messaggi
+[source,js,highlight="1|2,3,9|4..8"]
+----
+include::../assets/code_examples/popup.js[lines=7..15]
+----
+
+
+== Mantenere il service worker attivo
+[source,js]
+----
+include::../assets/code_examples/background.js[lines=223..237]
+----
+
+
+[.columns]
+== Integrare Clippy
+
+[.column.is-two-thirds%auto-animate]
+[.text-left]
+--
+Libreria ClippyJs:
+
+* Vecchia, poco mantenuta
+** Last commit 7 years ago
+* Ho dovuto riscriverne alcune parti
+** Dipendenze da file su S3 eliminati
+** Metodi di utilità extra
+* It's not my first rodeo
+** Pyndie online editor
+** PHPFuck online compiler
+--
+
+[.column]
+--
+image:first-time-really.gif[size=contain]
+--
+
+== Inizializzare Clippy
+
+[source,js,highlight="12,14,19..22,24|1..10"]
+----
+include::../assets/code_examples/clippy-init.js[lines=1..3]
+include::../assets/code_examples/clippy-init.js[lines=49..71]
+----
+
+== Voilà!
+
+image::clippy-on-page.png[]
+
+[.columns.is-vcentered%auto-animate]
+== Espandere la conoscenza di un LLM
+
+[.column.is-two-thirds%auto-animate]
+[.text-left]
+--
+Un LLM conosce sono i dati su cui è stato allenato
+
+Per aggiungere il contenuto della pagina che l'utente sta visitando abbiamo due strade:
+
+[%step]
+* Fine tuning
+* Retrieval-Augmented Generation (RAG)
+--
+
+[.column]
+--
+image::drclippy.jpg[]
+--
+
+[.columns.is-vcentered%auto-animate]
+== Espandere la conoscenza di un LLM: fine tuning
+
+[.column]
+* Riallena (parzialmente) il modello con i nuovi dati
+** Procedura lenta e costosa
+* Ogni cambiamento nei dati richiede di riallenare il modello
+* Non è sostenibile per il nostro caso d'uso!
+
+[.column]
+[plantuml, rma-component-diagram-finetuning, svg]
+....
+include::../assets/diagrams/aws/AWSCommon.puml[]
+include::../assets/diagrams/aws/Documents.puml[]
+include::../assets/diagrams/aws/Genericdatabase.puml[]
+include::../assets/diagrams/aws/SageMakerModel.puml[]
+include::../assets/diagrams/aws/User.puml[]
+include::../assets/diagrams/finetuning.txt[]
+....
+
+
+[.columns.is-vcentered%auto-animate]
+== Espandere la conoscenza di un LLM: RAG
+* Inietta le informazioni rilevanti nel prompt
+* Dinamico
+* Più costoso in fase di inferenza
+** Prompt più lungo
+* Dipendendente dalla Context Window del modello
+* La qualità delle risposte dipende dalla selezione delle informazioni rilevanti!
+
+[.columns.is-vcentered%auto-animate]
+== Diagramma di un RAG
+[plantuml, rma-component-diagram-rag, svg]
+....
+include::../assets/diagrams/rag.txt[]
+....
+
+[.columns.is-vcentered%auto-animate]
+== !
+[plantuml, rma-component-diagram-rag, svg]
+....
+include::../assets/diagrams/rag.txt[]
+X -[#green,thickness=10]l-> w : "      "
+....
+
+
+== Recuperare il contenuto della pagina
+
+[source,js,highlight="1..3,22..25|6,8|9..21"]
+----
+include::../assets/code_examples/content.js[lines=120..145]
+----
+
+[.columns.is-vcentered%auto-animate]
+== !
+[plantuml, rma-component-diagram-rag, svg]
+....
+include::../assets/diagrams/rag.txt[]
+X -[#green,thickness=10]l-> ep : "      "
+....
+
+== Embeddings
+
+[.text-left]
+--
+* Token
+** Parte di una parola, compongono il dizionario di un LLM
+* Embedding
+** Trasforma una sequenza di token in un vettore numerico
+--
+
+== Processing
+[source,js,highlight="1..4,8..15|6"]
+----
+include::../assets/code_examples/background.js[lines=77..91]
+----
+
+== Calcolare gli embeddings
+[source,js,highlight="1..10|12..20"]
+----
+include::../assets/code_examples/background.js[lines=135..154]
+----
+
+== Embedding pipeline
+[source,js,highlight="1,14|2,3|6..13"]
+----
+include::../assets/code_examples/background.js[lines=43..56]
+----
+
+[.columns.is-vcentered%auto-animate]
+== !
+[plantuml, rma-component-diagram-rag, svg]
+....
+include::../assets/diagrams/rag.txt[]
+X -[#green,thickness=10]d-> db : "      "
+....
+
+== Vector database
+* Memorizza gli embedding
+* Permette di cercare embedding "Simili"
+* Voy Search
+** Completamente In-Browser
+** Open source
+
+== Salvataggio embeddings
+[source,js,highlight="6,16,17"]
+----
+include::../assets/code_examples/background.js[lines=77..94]
+----
+
+
+== Persistenza indexdb
+[source,js]
+----
+include::../assets/code_examples/background.js[lines=27..41]
+----
+
+[.columns.is-vcentered%auto-animate]
+== !
+[plantuml, rma-component-diagram-rag, svg]
+....
+include::../assets/diagrams/rag.txt[]
+Y -[#green,thickness=10]u-> qe : "      "
+X -[#green,thickness=10]d-> db : "      "
+....
+
+== Retrieval
+Cerca i pezzi più rilevanti per rispondere alla domanda
+[source,js,highlight="1|5|6..12"]
+----
+include::../assets/code_examples/background.js[lines=95..107]
+----
+
+[.columns.is-vcentered%auto-animate]
+== !
+[plantuml, rma-component-diagram-rag, svg]
+....
+include::../assets/diagrams/rag.txt[]
+Y -[#green,thickness=10]u-> c : "      "
+Z -[#green,thickness=10]r-> q : "      "
+....
+
+== Rispondere alla domanda
+[source,js]
+----
+include::../assets/code_examples/background.js[lines=108]
+----
+
+[.columns.is-vcentered%auto-animate]
+== !
+[plantuml, rma-component-diagram-rag, svg]
+....
+include::../assets/diagrams/rag.txt[]
+X -[#green,thickness=10]r-> pm : "      "
+Y -[#green,thickness=10]d-> llm : "      "
+....
+== Prompt/Messages
+[source,js,highlight="1|2..4,16|7..14|15..21|22"]
+----
+include::../assets/code_examples/background.js[lines=161..174]
+include::../assets/code_examples/background.js[lines=182..188]
+include::../assets/code_examples/background.js[lines=190]
+----
+
+== InstructModelSingleton
+[source,js]
+----
+include::../assets/code_examples/background.js[lines=59..74]
+----
+
+== Demo
+video::../video/demo.mp4[]
+
+[.columns]
+== Sfide
+[.column.is-two-thirds%auto-animate]
+--
+* Lento e ghiotto di risorse
+** i7 11th G @ 2.80GHz 16 GB RAM Intel Iris Xe 
+** Due minuti di inferenza + download dei modelli
+* A volte non accurato
+** Modello LLM piccolo e quantizzato
+
+Soluzione: chip integrati dedicati all'architettura Transaformers
+--
+
+[.column]
+image::clippy-this-is-fine.jpeg[]
+
+[.columns]
+== Vantaggi
+[.column.is-two-thirds%auto-animate]
+--
+* Tecnologie Open
+* Costi sostenuti dagli utenti finali
+* Privacy by design
+* Meno problemi etici e di sicurezza
+--
+
+[.column]
+image::clippy-ship-it.gif[]

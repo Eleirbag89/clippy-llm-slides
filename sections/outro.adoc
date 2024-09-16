@@ -1,0 +1,15 @@
+
+== Riferimenti
+* ClippyLLM Repository
+* https://aitho.it[Aitho]
+* https://huggingface.co/docs/transformers.js/index[Transformers.js]
+* https://webllm.mlc.ai/[WebLLM]
+* https://github.com/tantaraio/voy[Voy Search]
+* https://github.com/pi0/clippyjs[ClippyJs]
+* Paper https://arxiv.org/abs/2005.11401[Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks]
+* Asciidoc slide Template by https://github.com/martsec/asciidoc-slides[martsec]
+
+
+[.white_bg]
+== Domande?
+image::hal-clippy.gif[background, size=contain]

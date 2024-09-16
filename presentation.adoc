@@ -28,3 +28,7 @@
 include::sections/intro.adoc[]
 
 include::sections/generative-ai.adoc[]
+
+include::sections/clippy_llm.adoc[]
+
+include::sections/outro.adoc[]

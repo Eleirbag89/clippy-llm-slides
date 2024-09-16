@@ -68,7 +68,7 @@ image::patrick_agenda.png[background, size=contain]
 
 --
 * Panoramica GenAI e LLM
-* Modelli LLM nel browser
+* Modelli LLM
 * ClippyLLM
 * RAG
 * Considerazioni e domande
