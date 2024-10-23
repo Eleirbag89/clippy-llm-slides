@@ -2,20 +2,6 @@
 == Follow Along
 image:qr_code.png[background]
 
-
-[.white_bg]
-== Aitho
-image::aitho.jpg[background]
-
---
-* Fondata nel 2016 con sede in piazza Europa CT
-* Mission: Retention, Rientro e Sviluppo Talenti
-* Core: Consulenza Informatica settore Banking
-* Ricerca e Sviluppo su AI, xR, Blockchain, MicroX etc.
-* Benefits: full remote e welfare aziendale
-
---
-
 [.white_bg]
 == !
 image::aitho_me.jpg[background]
@@ -25,7 +11,7 @@ image::aitho_me.jpg[background]
 image::aitho_me.jpg[background]
 
 --
-* Software Architect / Full Stack Dev / SysAdmin
+* Software Architect / Full Stack Dev / SysAdmin presso Aitho
 * R&D in AI, MicroFE/MicroApp, NFT…
 * Open Source: Librerie PHP per bot Telegram / Mastodon
 * https://github.com/Eleirbag89
@@ -54,7 +40,7 @@ image::clippy-flip-bird.jpg[]
 --
 Nel corso del presente talk capiterà di _antropomorfizzare_ l'AI per semplificare la discussione con delle analogie
 
-Le AI sono modelli matematici, probabilmente dei _"semplici"_ pappagalli stocastici, pertanto parlare di _intelligenza_, _ragionamento_ e _pensiero_ è *improprio*.
+Le AI ad oggi falliscono a eseguire task che per un essere umano sono triviali. Parlare in termini di _intelligenza_, _ragionamento_ e _pensiero_ è *improprio*, se non addirittura errato.
 --
 
 [.column]

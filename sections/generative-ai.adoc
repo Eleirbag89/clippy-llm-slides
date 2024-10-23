@@ -15,7 +15,7 @@
 [.column.is-two-thirds]
 [%step]
 --
-image:generative-ai-meme.jpg[width=600]
+image:ai_everywhere.png[width=480]
 --
 
 
