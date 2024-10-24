@@ -3,6 +3,19 @@
 image:qr_code.png[background]
 
 [.white_bg]
+== Aitho
+image::aitho.jpg[background]
+
+--
+* Fondata nel 2016 con sede in piazza Europa CT
+* Mission: Retention, Rientro e Sviluppo Talenti
+* Core: Consulenza Informatica settore Banking
+* Ricerca e Sviluppo su AI, xR, Blockchain, MicroX etc.
+* Benefits: full remote e welfare aziendale
+
+--
+
+[.white_bg]
 == !
 image::aitho_me.jpg[background]
 
