@@ -7,6 +7,9 @@
 
 
 @media print {
+  @page {
+    size: portrait;
+  }
   .reveal-viewport {
     background-image: none;
     background-size: 12%;

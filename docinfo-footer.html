@@ -6,6 +6,20 @@
 <script src="assets/js/reveal.js-plugins/customcontrols/plugin.js"></script>
 <script src="assets/js/reveal.js-plugins/countdown/countdown.js"></script>
 <script>
+  function print_pdf() {
+    console.log("Window?");
+    var printWindow = window.open('?print-pdf', '');
+    printWindow.onafterprint = function() {
+          printWindow.close(); // Chiudi la finestra
+    };
+
+    printWindow.onload = function() {
+      setTimeout(function() {
+        printWindow.print();
+      }, 1000);
+    };
+  };
+
   Reveal.configure({
     menu: {
       side: 'left',
@@ -19,10 +33,17 @@
           title: 'Toggle overview (O)',
           icon: '<i class="fa fa-th"></i>',
           action: 'Reveal.toggleOverview();'
+        },
+        {
+          id: 'print-version',
+          title: 'Print version (P)',
+          icon: '<i class="fa fa-print"></i>',
+          action: 'print_pdf();'
         }
       ]
     },
     keyboard: {
+      '80': ()=> {print_pdf()}
     }
   })
   
