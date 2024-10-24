@@ -5,10 +5,6 @@
     background-position: 97% 3%;
 }
 
-#watermark {
-	height: 0px;
-}
-
 
 @media print {
   .reveal-viewport {
@@ -18,15 +14,6 @@
     background-position: 97% 3%;
   }
   
-  #watermark {
-    opacity: 1;
-  	position: fixed;
-  	height: 60px;
-	  z-index: 20;
-    top: 40px;
-    left: 1300px;
-  }
-
   .reveal .slide-number-pdf {
     display: block;
 	  position: absolute;
