@@ -20,6 +20,58 @@
     };
   };
 
+  function fullscreen_handler(event) {
+    var isFullScreen = document.fullScreen || 
+                   document.mozFullScreen || 
+                   document.webkitIsFullScreen || 
+                   (window.innerHeight == screen.height);
+
+    if (isFullScreen){
+      Reveal.configure({
+        controls: false
+      });
+      var cc = document.getElementById('customcontrols');
+      if (cc) {
+        cc.style.visibility = 'hidden';
+      }
+      var smb = document.getElementsByClassName('slide-menu-button');
+      if (smb && smb.length > 0) {
+        document.getElementsByClassName('slide-menu-button')[0].style.visibility = 'hidden';
+      }
+    } else {
+      Reveal.configure({
+        controls: true
+      });
+      var cc = document.getElementById('customcontrols');
+      if (cc) {
+        cc.style.visibility = 'visible';
+      }
+      var smb = document.getElementsByClassName('slide-menu-button');
+      if (smb && smb.length > 0) {
+        document.getElementsByClassName('slide-menu-button')[0].style.visibility = 'visible';
+      }
+    }
+  }
+
+  function enable_fullscreen() {
+    var element = document.documentElement;
+    
+    // Supports most browsers and their versions.
+    var requestMethod = element.requestFullScreen || element.webkitRequestFullScreen || element.mozRequestFullScreen || element.msRequestFullScreen;
+
+    if (requestMethod) { // Native full screen.
+      requestMethod.call(element);
+    } else if (typeof window.ActiveXObject !== "undefined") { // Older IE.
+      var wscript = new ActiveXObject("WScript.Shell");
+      if (wscript !== null) {
+        wscript.SendKeys("{F11}");
+      }
+    }
+
+  };
+
+  window.addEventListener("resize", fullscreen_handler);
+
   Reveal.configure({
     menu: {
       side: 'left',
@@ -39,6 +91,12 @@
           title: 'Print version (P)',
           icon: '<i class="fa fa-print"></i>',
           action: 'print_pdf();'
+        },
+        {
+          id: 'enable-fullscreen',
+          title: 'Full screen (F11)',
+          icon: '<i class="fas fa-expand-arrows-alt"></i>',
+          action: 'enable_fullscreen();'
         }
       ]
     },
