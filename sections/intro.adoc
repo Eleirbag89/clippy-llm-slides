@@ -7,7 +7,7 @@ image:qr_code.png[background]
 image::aitho.jpg[background]
 
 --
-* Fondata nel 2016 con sede in piazza Europa CT
+* Fondata nel 2016, oggi sede alla Vecchia Dogana, CT
 * Mission: Retention, Rientro e Sviluppo Talenti
 * Core: Consulenza Informatica settore Banking
 * Ricerca e Sviluppo su AI, xR, Blockchain, MicroX etc.
