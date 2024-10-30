@@ -306,7 +306,7 @@ include::../assets/code_examples/background.js[lines=59..74]
 ----
 
 == Demo
-video::../video/demo.mp4[]
+video::../video/demo.mp4[opts=autoplay]
 
 [.columns]
 == Sfide
