@@ -1,6 +1,6 @@
 
 == Riferimenti
-* ClippyLLM Repository
+* https://github.com/Eleirbag89/clippy-llm[ClippyLLM Repository]
 * https://aitho.it[Aitho]
 * https://huggingface.co/docs/transformers.js/index[Transformers.js]
 * https://webllm.mlc.ai/[WebLLM]
