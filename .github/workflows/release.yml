@@ -1,0 +1,48 @@
+# Simple workflow for deploying static content to GitHub Pages
+name: Make release on tag
+
+on:
+  push:
+    # Sequence of patterns matched against refs/tags
+    tags:
+      - 'v*' # Push events to matching v*, i.e. v1.0, v20.15.10
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  id-token: write
+
+# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+concurrency:
+  group: "release"
+  cancel-in-progress: false
+
+jobs:
+  # Single deploy job since we're just deploying
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+          cache: 'npm'
+      - run: npm ci
+      - run: npm run build
+      - run: mkdir dist
+      - run: mv assets dist/
+      - run: mv presentation.html dist/index.html
+      - name: Zip Assets
+        uses: montudor/action-zip@v1
+        with:
+          args: zip -qq -r presentation.zip dist
+      - name: Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            presentation.zip
