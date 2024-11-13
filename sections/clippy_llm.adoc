@@ -318,7 +318,7 @@ video::../video/demo.mp4[opts=autoplay]
 * A volte non accurato
 ** Modello LLM piccolo e quantizzato
 
-Soluzione: chip integrati dedicati all'architettura Transaformers
+Soluzione: chip integrati dedicati all'architettura Transformers
 --
 
 [.column]
