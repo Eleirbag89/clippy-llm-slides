@@ -121,7 +121,7 @@ image::clippy-on-page.png[]
 [.column.is-two-thirds%auto-animate]
 [.text-left]
 --
-Un LLM conosce sono i dati su cui è stato allenato
+Un LLM conosce solo i dati su cui è stato allenato
 
 Per aggiungere il contenuto della pagina che l'utente sta visitando abbiamo due strade:
 
