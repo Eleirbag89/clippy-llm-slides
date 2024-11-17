@@ -24,7 +24,7 @@ image::aitho_me.jpg[background]
 image::aitho_me.jpg[background]
 
 --
-* Software Architect / Full Stack Dev / SysAdmin presso Aitho
+* Head of innovation / Software Architect / SysAdmin presso Aitho
 * R&D in AI, MicroFE/MicroApp, NFT…
 * Open Source: Librerie PHP per bot Telegram / Mastodon
 * https://github.com/Eleirbag89
@@ -66,9 +66,9 @@ image::machine-friend-bad-idea.png[]
 image::patrick_agenda.png[background, size=contain]
 
 --
-* Panoramica GenAI e LLM
-* Modelli LLM
+* Panoramica Generative AI
+* Large Language Model
 * ClippyLLM
-* RAG
+** RAG
 * Considerazioni e domande
 --
